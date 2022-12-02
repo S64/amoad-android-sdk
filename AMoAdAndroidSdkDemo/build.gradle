@@ -13,10 +13,7 @@ buildscript {
         google()
     }
     dependencies {
-        // 最新のGoogle Mobile Ads SDK (AdMob SDK) を用いる場合、
-        // Android Gradle Plugin v3.3.3などのAndroid 11でのパッケージ公開設定に対応したバージョンを指定する必要がございます
-        // https://developer.android.com/studio/releases/gradle-plugin?hl=ja#4-0-0
-        classpath 'com.android.tools.build:gradle:3.3.3'
+        classpath 'com.android.tools.build:gradle:7.3.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
