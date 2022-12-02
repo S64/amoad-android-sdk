@@ -6,22 +6,43 @@ android {
 
     defaultConfig {
         applicationId "com.amoad.amoadandroidsdkdemo"
-        minSdkVersion 14
+
+        // Google Mobile Ads SDK (AdMob SDK) は
+        // v21.0.0 以降におけるminSdkを19としている為、
+        // AMoAd SDK最低要件の変更が必要となります
+        // https://developers.google.com/admob/android/rel-notes
+        minSdkVersion 19
+
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 最新のGoogle Mobile Ads SDK (AdMob SDK) を使用する場合、
+    // その依存関係上のライブラリにおいてJava 8サポートを要求される為、
+    // AMoAd SDKにおけるJava言語バージョンの最低要件を変更する必要がございます
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation 'com.amoad:amoad-sdk:+'
-    implementation 'com.google.android.gms:play-services-ads:16.0.0'
+    implementation 'com.amoad:amoad-sdk:5.2.19'
+
+    // 現行の最新版Google Mobile Ads SDK (AdMob SDK)
+    // https://developers.google.com/admob/android/rel-notes
+    // https://maven.google.com/web/index.html?q=play-services-ads#com.google.android.gms:play-services-ads:21.3.0
+    // https://github.com/amoad/amoad-android-sdk/wiki/SDK-%E5%B0%8E%E5%85%A5%E3%82%AC%E3%82%A4%E3%83%89/a8885d282b4c422a117c562ef0723624628c096d
+    implementation 'com.google.android.gms:play-services-ads:21.3.0'
+
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

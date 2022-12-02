@@ -10,6 +10,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+
+        <!--
+            Google Mobile Ads SDK は AdMob ないし Google Tag Manager 向けSDKですので、
+            利用にあたっては当該Google発行アカウントからのID取得および設定が必要となり、
+            下記meta-data設定を行わない場合は、起動時にエラーが発生しクラッシュします
+            https://googlemobileadssdk.page.link/admob-android-update-manifest
+        -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
